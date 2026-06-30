@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Souls</title>
+
+    <!--Add Cinzel font to the page-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+    <audio id="hover-Sound" src="assets/audio/landing page hover sound.mp3"></audio>
+    <audio id="bg-music" src="assets/audio/background music.mp3" loop></audio>
+    <div>
+        <h1>Dark Souls Remastered</h1>
+        <h2>
+        <a id="char-Target" href="character.html">Create your Character</a><br><br>
+        <a id="boss-Target" href="bosses.html">About Bosses</a>
+        </h2>
+    </div>
+
+    <script>
+        const hoverSound = document.getElementById('hover-Sound');
+        const charTarget = document.getElementById('char-Target');
+        const bossTarget = document.getElementById('boss-Target');
+        const bgMusic = document.getElementById('bg-music');
+
+        document.addEventListener('click', () => {
+            bgMusic.play();
+        }, {once: true});
+
+        charTarget.addEventListener('mouseover' , () => {
+            hoverSound.currentTime = 0;
+            hoverSound.play();
+        });
+
+        bossTarget.addEventListener('mouseover' , () => {
+            hoverSound.currentTime = 0;
+            hoverSound.play();
+        });
+    </script>
+
+
+</body>
+</html>

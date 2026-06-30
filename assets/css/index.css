@@ -1,0 +1,29 @@
+body{
+    background-color: black;
+    color: antiquewhite;
+    font-family: Cinzel,serif;
+}
+div{
+    text-align: center;
+}
+div h1{
+  
+    font-size: 110px;
+    text-align: center;
+    margin-top: 20%;
+}
+div h2{
+    font-size: 40px;
+}
+div h2 a{
+    display: inline-block;
+    text-decoration: none;
+    color: antiquewhite;
+    transition: 1.5s all;
+}
+
+div h2 a:hover{
+    transform: scale(1.2);
+    background-color: #8b0000;
+    background: linear-gradient(to right, transparent, darkred 40%, #8b0000 40%, transparent);
+}

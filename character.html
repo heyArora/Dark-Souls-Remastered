@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Souls</title>
+
+     <!--Add Cinzel font to the page-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/character.css">
+</head>
+<body>
+
+    <!-- Adding Audio here -->
+    <audio id="bg-music" src="assets/audio/background music.mp3" loop></audio>
+
+    <div class="gridcontainer">
+
+        <!--Char Details here-->
+        <div class="chardetails">
+
+            <!--Used for Name of the Character-->
+            <form>
+                <lable>
+                    <input type="text" id="char-name" placeholder="Enter Character Name">
+                </lable>
+            </form>
+
+            <br>
+
+            <!--Used for Sex of the Character-->
+            <div class="flexcontainer">
+                <div class="flextext">Sex</div>
+                <div class="flexbox" id="sex-box"></div>
+
+                <!-- Used to create Popup menu for Sex -->
+                 <div class="popuplist" id="sex-popup">
+                    <ul>
+                        <li>Male</li>
+                        <li>Female</li>
+                    </ul>
+                 </div>
+            </div>
+
+            <br>
+
+            <!--Used for Class of the Character-->
+            <div class="flexcontainer">
+                <div class="flextext">Class</div>
+                <div class="flexbox" id="class-box"></div>
+
+                <!-- Used to create Popup menu for Class -->
+                 <div class="popuplist" id="class-popup">
+                    <ul>
+                        <li>Warrior</li>
+                        <li>Knight</li>
+                        <li>Wanderer</li>
+                        <li>Thief</li>
+                        <li>Bandit</li>
+                        <li>Hunter</li>
+                        <li>Sorcerer</li>
+                        <li>Pyromancer</li>
+                        <li>Cleric</li>
+                        <li>Deprived</li>
+                    </ul>
+                 </div>
+            </div>
+
+            <br>
+
+            <!--Used for Gift of the Character-->
+            <div class="flexcontainer">
+                <div class="flextext">Gift</div>
+                <div class="flexbox" id="gift-box"></div>
+
+                <!-- Used to create Popup menu for Gifts -->
+                 <div class="popuplist" id="gift-popup">
+                    <ul>
+                        <li>None</li>
+                        <li>Godess's Blessing</li>
+                        <li>Black Firebomb</li>
+                        <li>Twin Humanities</li>
+                        <li>Binoculars</li>
+                        <li>Pendant</li>
+                        <li>Master Key</li>
+                        <li>Tiny Being's Ring</li>
+                        <li>Old Witch's Ring</li>
+                    </ul>
+                 </div>
+            </div>
+
+            <br>
+
+            <!--Used for Physique of the Character-->
+            <div class="flexcontainer">
+                <div class="flextext">Physique</div>
+                <div class="flexbox" id="physique-box"></div>
+            </div>
+
+             <!-- Used to create Popup menu for Physique -->
+                 <div class="popuplist" id="physique-popup">
+                    <ul>
+                        <li>Average</li>
+                        <li>Slim</li>
+                        <li>Very Slim</li>
+                        <li>Large</li>
+                        <li>Very Large</li>
+                        <li>Large Upper Body</li>
+                        <li>Large Lower Body</li>
+                        <li>Top Heavy</li>
+                        <li>Tiny Head</li>
+                    </ul>
+                 </div>
+        </div>
+
+
+
+
+        <!-- Images added here -->
+        <div class="image">
+            <div class="imagecontainer">
+                <img height="100%" width="100%" id="char-image" src="">
+            </div>
+        </div>                
+
+
+
+        <!-- Stats are added here  -->
+        <div class="stats">
+
+            <!-- This work with Level stat -->
+            <div class="statscontainer">
+                <div class="statstext">Level</div>
+                <div class = "statsbox" id="level-stat"></div>
+            </div>
+
+            <!-- This works with Vitality stat (Health) -->
+            <div class="statscontainer">
+                <div class="statstext">Vitality</div>
+                <div class = "statsbox" id = "vit-stat"></div>
+            </div>
+
+            <!-- This works with Attunement stat -->
+            <div class="statscontainer">
+                <div class="statstext">Attunement</div>
+                <div class = "statsbox" id="attunement-stat"></div>
+            </div>
+
+            <!-- This works with Endurance stat -->
+            <div class="statscontainer">
+                <div class="statstext">Endurance</div>
+                <div class = "statsbox" id = "endu-stat"></div>
+            </div>
+
+            <!-- This work with Strength stat -->
+            <div class="statscontainer">
+                <div class="statstext">Strength</div>
+                <div class = "statsbox" id="str-stat"></div>
+            </div>
+
+            <!-- This works with Dexterity stat -->
+            <div class="statscontainer">
+                <div class="statstext">Dexterity</div>
+                <div class = "statsbox" id="dex-stat"></div>
+            </div>
+
+            <!-- This works with Resistance stat -->
+            <div class="statscontainer">
+                <div class="statstext">Resistance</div>
+                <div class = "statsbox" id="res-stat"></div>
+            </div>
+
+            <!-- This work with Intelligence stat -->
+            <div class="statscontainer">
+                <div class="statstext">Intelligence</div>
+                <div class = "statsbox" id="intelligence-stat"></div>
+            </div>
+
+            <!-- This work with Faith stat -->
+            <div class="statscontainer">
+                <div class="statstext">Faith</div>
+                <div class = "statsbox" id="faith-stat"></div>
+            </div>
+
+            <div class="buttondesign">
+                <a href="index.html">Home</a>
+            </div>
+
+            <div class="classdescription" id = "cls-description"></div>
+        </div>   
+
+        <script>
+            
+            // Adding popup for Sex in Character Creation
+            const sexbox = document.querySelector('#sex-box');
+            const sexpopup = document.querySelector('#sex-popup');
+            const sexoptions = document.querySelectorAll('#sex-popup li');
+
+            sexbox.addEventListener('click', () => {
+                sexpopup.style.display = 'inline-block';
+            });
+
+            sexoptions.forEach(function(option){
+                option.addEventListener('click', () => {
+                    sexbox.textContent = option.textContent;
+                    sexpopup.style.display = 'none';
+                });
+            });
+  
+    
+            //Adding popup for Class in Character Creation
+            const classbox = document.querySelector('#class-box');
+            const classpopup = document.querySelector('#class-popup');
+            const classoptions = document.querySelectorAll('#class-popup li');
+
+            classbox.addEventListener('click', () =>{
+                classpopup.style.display = 'inline-block';
+            });
+
+            classoptions.forEach(function(option){
+                option.addEventListener('click', () => {
+                    classbox.textContent = option.textContent;
+                    classpopup.style.display = 'none';  
+
+                    //Interaction for stats class
+                    const selectedclassstats = classstats[option.textContent];
+                    levelstat.textContent = selectedclassstats.level;
+                    vitstat.textContent = selectedclassstats.vit;
+                    attunementstat.textContent = selectedclassstats.attunement;
+                    endustat.textContent = selectedclassstats.endu;
+                    strstat.textContent = selectedclassstats.str;
+                    dexstat.textContent = selectedclassstats.dex;
+                    resstat.textContent = selectedclassstats.res;
+                    intelligencestat.textContent = selectedclassstats.intelligence;
+                    faithstat.textContent = selectedclassstats.faith;
+
+                    //Interaction for Class description
+                    const selectedclassdescription = classdescription[option.textContent];
+                    clsdescription.textContent = selectedclassdescription;
+
+                    //Interaction for Images
+                    const selectedclassimage = classimages[option.textContent];
+                    charimage.src = selectedclassimage;
+
+                });
+            });
+
+
+            //Adding popup for Gifts in Character Creation
+            const giftbox = document.querySelector('#gift-box');
+            const giftpopup = document.querySelector('#gift-popup');
+            const giftoptions = document.querySelectorAll('#gift-popup li');
+
+            giftbox.addEventListener('click', () => {
+                giftpopup.style.display = 'inline-block';
+            });
+
+            giftoptions.forEach(function(option){
+                option.addEventListener('click', () => {
+                    giftbox.textContent = option.textContent;
+                    giftpopup.style.display = 'none';
+                });
+            });
+
+            //Adding popup for Physique in Character Creation
+            const physiquebox = document.querySelector('#physique-box');
+            const physiquepopup = document.querySelector('#physique-popup');
+            const physiqueoptions = document.querySelectorAll('#physique-popup li');
+
+            physiquebox.addEventListener('click', () => {
+                physiquepopup.style.display = 'inline-block';
+            });
+
+            physiqueoptions.forEach(function(option){
+                option.addEventListener('click', () => {
+                    physiquebox.textContent = option.textContent;
+                    physiquepopup.style.display = 'none';
+                });
+            });
+
+            //Adding Bg-Audio to the web page
+            const bgMusic = document.getElementById('bg-music');
+            document.addEventListener ('click', ()=>{
+                bgMusic.play();
+            },{once:true});
+
+
+            // Adding interaction for stats section
+            const levelstat = document.querySelector('#level-stat');
+            const vitstat = document.querySelector('#vit-stat');
+            const attunementstat = document.querySelector('#attunement-stat');
+            const endustat = document.querySelector('#endu-stat');
+            const strstat = document.querySelector('#str-stat');
+            const dexstat = document.querySelector('#dex-stat');
+            const resstat = document.querySelector('#res-stat');
+            const intelligencestat = document.querySelector('#intelligence-stat');
+            const faithstat = document.querySelector('#faith-stat');
+
+            // This is the lookup table to update the stats page
+            const classstats = {
+                Warrior: {level: 4, vit: 11, attunement: 8, endu: 12, str: 13, dex: 13, res: 11, intelligence: 9, faith: 9},
+                Knight: {level: 5, vit: 14, attunement: 10, endu: 10, str: 11, dex: 11, res: 10, intelligence: 9, faith: 11},
+                Wanderer: {level: 3, vit: 10, attunement: 11, endu: 10, str: 10, dex: 14, res: 12, intelligence: 11, faith: 8},
+                Thief: {level: 5, vit: 9, attunement: 11, endu: 9, str: 9, dex: 15, res: 10, intelligence: 12, faith: 11},
+                Bandit: {level: 4, vit: 12, attunement: 8, endu: 14, str: 14, dex: 9, res: 11, intelligence: 8, faith: 10},
+                Hunter: {level: 4, vit: 11, attunement: 9, endu: 11, str: 12, dex: 14, res: 11, intelligence: 9, faith: 9},
+                Sorcerer: {level: 3, vit: 8, attunement: 15, endu: 8, str: 9, dex: 11, res: 8, intelligence: 15, faith: 8},
+                Pyromancer: {level: 1, vit: 10, attunement: 12, endu: 11, str: 12, dex: 9, res: 12, intelligence: 10, faith: 8},
+                Cleric: {level: 2, vit: 11, attunement: 11, endu: 9, str: 12, dex: 8, res: 11, intelligence: 8, faith: 14},
+                Deprived: {level: 6, vit: 11, attunement: 11, endu: 11, str: 11, dex: 11, res: 11, intelligence: 11, faith: 11}
+            }
+
+            //Adding interaction for class description
+            const clsdescription = document.querySelector('#cls-description');
+            
+            //This is the lookup table to update the class description
+            const classdescription = { 
+                Warrior: "Warriors are weapon experts with great Strength and Dexterity." ,
+                Knight: "Knights have high Health. They are heavily armored and hard to knock down." ,
+                Wanderer: "Wanderers are dexterous, Scimitar wielding characters.",
+                Thief: "Thieves come equipped with the Master Key, have very high starting Dexterity and are equipped with the Bandit's Knife, making them excel at critical hits.",
+                Bandit: "Bandits have high Strength and wield heavy Battle Axes." , 
+                Hunter: "Hunters have high Dexterity and are skilled in both ranged and melee combat.",
+                Sorcerer: "Sorcerers have very high Intelligence and cast sorceries learned at the Vinheim Dragon School.",
+                Pyromancer: "Pyromancers from the Great Swamp. They cast pyromancy and wield small Hand Axes." ,
+                Cleric: "Clerics cast healing miracles and wield Maces." ,
+                Deprived: "The Deprived come equipped with nothing but a Club and an old wooden Plank Shield, but have all stats at 11 which makes them a flexible and adaptable class despite starting out with poor equipment"
+            }
+
+
+
+            // Adding interaction for images
+            const charimage = document.querySelector('#char-image');
+
+            // This is the lookup table to update the images
+            const classimages = {
+                Warrior: "assets/images/Warrior.jpg",
+                Knight: "assets/images/Knight.jpg",
+                Wanderer: "assets/images/Wanderer.jpg",
+                Thief: "assets/images/Thief.jpg",
+                Bandit: "assets/images/Bandit.jpg",
+                Hunter: "assets/images/Hunter.jpg",
+                Sorcerer: "assets/images/Sorcerer.jpg",
+                Pyromancer: "assets/images/Pyromancer.jpg", 
+                Cleric: "assets/images/Cleric.jpg",
+                Deprived: "assets/images/Deprived.jpg"
+            }
+        </script>
+
+    </div>
+</body>
+</html>

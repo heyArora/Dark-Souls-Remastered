@@ -1,0 +1,232 @@
+body{
+    background-color: black;
+    font-family: Cinzel,serif;
+    color: antiquewhite;
+  
+}
+
+
+/* Grid is Used to divide the webpage into different boxes, to ease the working process*/
+.gridcontainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Chardetails, Stats & image are Grid elements */
+.chardetails, .stats, .image{
+    border: 5px double antiquewhite;
+    border-radius: 5%;
+}
+
+/* Name, Sex, Class, Gift, Physique */
+.chardetails {
+    grid-column: span 2;
+    padding: 10px;
+    height: 300px;
+}
+
+/* Level, Vit etc (related to the respective class) */
+.stats{
+    grid-column: span 2;
+    height: 500px;
+}
+
+/* Image of the class (related to the respective class) */
+.image{
+    grid-row: span 2;
+}
+
+/* This Designs the Character Name text box */
+#char-name{
+    height: 30px;
+    width: 900px;
+    font-family: Cinzel,serif;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: #8b0000;
+    background-color: antiquewhite;
+}
+
+/* I had to create a box that the user can't type on and can only select , so i came up with using flexbox and then using it as class in different div's */
+.flexcontainer{
+    display: flex;
+}
+
+/* This designs the text beside the empty box like Sex, Class, Gift, Physique */
+.flextext{
+    
+    width: 200px;
+    font-family: Cinzel,serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* This styles the box on which the user will only click, and can't write in */
+.flexbox{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 707px;
+    background-color: antiquewhite;
+    font-family: Cinzel,serif;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: #8b0000;
+}
+
+.popuplist{
+    display: none;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    font-size: 35px;
+    font-weight: bolder;
+    color: black;
+    background-color: rgb(188, 188, 171);
+    border: 5px ridge antiquewhite;
+    width: 400px;
+    height: 500px;
+    border-radius: 20%;
+
+    z-index: 10;
+}
+
+ul{
+    margin-top: 15px;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    transition: 0.2s all;
+}
+
+li:hover{
+    color: antiquewhite;
+    background-color: #8b0000;
+    background: linear-gradient(to right, transparent, darkred 50%, #8b0000 50%, transparent);
+}
+
+
+/* Styling for stats start here */
+.statscontainer{
+    display: flex;
+    padding: 10px;
+}
+
+/* This designs the text beside the empty box like level, dex, strength etc */
+.statstext{
+    width: 300px;
+    font-family: Cinzel,serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* This styles the box on which the user will only click, and can't write in */
+.statsbox{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  50px;
+    background-color: antiquewhite;
+    font-family: Cinzel,serif;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: #8b0000;
+}
+
+/* Styling for button starts */
+div a{
+    text-decoration: none;
+    font-family: Cinzel, serif;
+    color: #8b0000;
+
+    animation-name: button;
+    animation-delay: 1s;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.buttondesign{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    width: 200px;
+    position: absolute;
+    left: 40%;
+    bottom: 2%;
+    background-color: rgb(188, 188, 171);
+    color: #8b0000;
+    border: 5px double antiquewhite;
+    border-radius: 30%;
+
+    animation-name: buttonbox;
+    animation-delay: 1s;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes button{
+    from{
+        color: #8b0000;
+    }
+    to{
+        color: antiquewhite;
+    }
+}
+
+@keyframes buttonbox{
+    from{
+        background-color: rgb(188,188,171);
+    }
+    to{
+        background-color: #8b0000;
+    }
+}
+
+
+/* This is used to design the class description box */
+.classdescription{
+    position: absolute  ;
+    left: 30%;
+    bottom: 20%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  500px;
+    font-family: Cinzel,serif;
+    text-align: justify;
+    font-size: larger;
+    font-weight: bold;
+    color: #8b0000;
+    background-color: rgb(188, 188, 171);
+    border: 10px double antiquewhite;
+    padding: 10px;
+
+    z-index: 5;
+}
+
+
+/* This is used to design image box */
+.imagecontainer{
+    position: absolute;
+    top: 10%;
+    right: 4%;
+    background-color: rgb(188, 188, 171);
+    border: 10px groove antiquewhite;
+    height: 700px;
+    width: 400px;
+    object-fit: contain;
+    object-position: center;
+}
